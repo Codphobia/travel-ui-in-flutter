@@ -1,20 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:travel_app_ui/data/colors.dart';
 import 'package:travel_app_ui/data/typograpy.dart';
 import 'package:travel_app_ui/model/chip.dart';
 
 List<Chips> chipsList = [
-  Chips("All", kGreayButtonColor),
-  Chips("Filght", kGreayButtonColor),
-  Chips("Cruise", kGreayButtonColor),
-  Chips("Train", kGreayButtonColor),
-  Chips("Car", kGreayButtonColor),
-  Chips("Hotel", kGreayButtonColor),
-  Chips("Park", kGreayButtonColor),
-  Chips("Air", kGreayButtonColor),
-  Chips("Bali", kGreayButtonColor),
-  Chips("Agency", kGreayButtonColor),
+  Chips("All", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Filght", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Cruise", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Train", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Car", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Hotel", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Park", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Air", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Bali", kGreayButtonColor.withOpacity(0.3)),
+  Chips("Agency", kGreayButtonColor.withOpacity(0.3)),
 ];
 
 class MyChipWidget extends StatefulWidget {

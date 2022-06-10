@@ -20,6 +20,20 @@ TextStyle get kButtonTextStyle => TextStyle(
     fontSize: ScreenUtil().setSp(15),
     color: kButtonTextColor,
     fontWeight: kLightFontWeight);
+TextStyle get kHeadingforButtonTextStyle => TextStyle(
+    fontSize: ScreenUtil().setSp(15),
+    color: kHeadingTextColor,
+    fontWeight: kBoldFontWeight);
+TextStyle get kBlackHeadingForButtonTextStyle => TextStyle(
+    fontSize: ScreenUtil().setSp(14),
+    color: kVBlackHeadingTextColor,
+    fontWeight: kBoldFontWeight);
+TextStyle get kBlackHeadingForTicketTextStyle => TextStyle(
+    fontSize: ScreenUtil().setSp(25),
+    color: kVBlackHeadingTextColor,
+    fontWeight: kBoldFontWeight);
+TextStyle get kBlackHeadingForTicketTextTextStyle =>
+    TextStyle(fontSize: ScreenUtil().setSp(15), fontWeight: kBoldFontWeight);
 // font weight
 const FontWeight kBoldFontWeight = FontWeight.bold;
 const FontWeight kRegularFontWeight = FontWeight.normal;

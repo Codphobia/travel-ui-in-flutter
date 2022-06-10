@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:travel_app_ui/component/custom_chip_widget.dart';
+import 'package:travel_app_ui/component/custom_city_widget.dart';
 import 'package:travel_app_ui/component/custom_search_bar_widget.dart';
 import 'package:travel_app_ui/data/colors.dart';
 import 'package:travel_app_ui/data/typograpy.dart';
@@ -19,82 +20,56 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      body: Column(children: [
-        SizedBox(
-          height: 217.h,
-          child: Stack(children: [
-            Positioned(
-                top: 55.h,
-                left: 36.w,
-                child: SizedBox(
-                  width: 170.w,
-                  height: 100.h,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: kBackgroundColor,
+        body: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Row(children: [
+              Expanded(
+                  flex: 9,
                   child: Text(
-                    'Where would ',
+                    'Where would you like to travel.?',
                     style: kBlackHeadingTextStyle,
-                  ),
-                )),
-            Positioned(
-                top: 80.h,
-                left: 36.w,
-                child: SizedBox(
-                  width: 250.w,
-                  height: 100.h,
-                  child: Text(
-                    'you like to travel.?',
-                    style: kBlackHeadingTextStyle,
-                  ),
-                )),
-            Positioned(
-                top: 50.h,
-                right: 10.w,
-                child: CircleAvatar(
-                  radius: 17.r,
-                  backgroundImage: const NetworkImage(
-                      'https://avatars.githubusercontent.com/u/83277996?v=4'),
-                )),
-            Positioned(top: 115.h, left: 35.w, child: const CustomSearchBar()),
-            Positioned(
-                top: 180.h,
-                left: 33.w,
-                child: SizedBox(
-                    width: 310.w, height: 50.h, child: const MyChipWidget())),
-          ]),
-        ),
-        Expanded(
-          child: GridView.custom(
-            gridDelegate: SliverWovenGridDelegate.count(
-              crossAxisCount: 2,
-              mainAxisSpacing: 1,
-              crossAxisSpacing: 1,
-              pattern: [
-                WovenGridTile(0.7),
-                WovenGridTile(
-                  4 / 5,
-                ),
-              ],
+                  )),
+              Expanded(
+                  flex: 1,
+                  child: CircleAvatar(
+                    radius: 17.r,
+                    backgroundImage: const NetworkImage(
+                        'https://avatars.githubusercontent.com/u/83277996?v=4'),
+                  )),
+            ]),
+            SizedBox(
+              height: 2.h,
             ),
-            childrenDelegate: SliverChildBuilderDelegate(
-              (context, index) => GestureDetector(
-                onTap: () {
-                  Get.to(() => const DetailViewPage(),
-                      transition: Transition.downToUp,
-                      duration: const Duration(seconds: 2));
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.r),
-                  ),
-                  color: Colors.greenAccent,
-                  child: Stack(children: []),
+            const CustomSearchBar(),
+            SizedBox(height: 50.h, width: 350.w, child: const MyChipWidget()),
+            Expanded(
+              child: GridView.custom(
+                gridDelegate: SliverWovenGridDelegate.count(
+                  crossAxisCount: 2,
+                  mainAxisSpacing: 3,
+                  crossAxisSpacing: 3,
+                  pattern: [
+                    const WovenGridTile(0.7),
+                    const WovenGridTile(
+                      4 / 5,
+                    ),
+                  ],
                 ),
+                childrenDelegate: SliverChildBuilderDelegate(
+                    childCount: citiesList.length,
+                    (context, index) => CityWidget(
+                          city: citiesList[index],
+                        )),
               ),
             ),
-          ),
+          ]),
         ),
-      ]),
+      ),
     );
   }
 }
