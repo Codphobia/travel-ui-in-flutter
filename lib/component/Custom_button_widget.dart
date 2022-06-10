@@ -22,6 +22,7 @@ class _MyButtonWidgetState extends State<MyButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+      addRepaintBoundaries: false,
       scrollDirection: Axis.horizontal,
       itemCount: buttonList.length,
       itemBuilder: (context, index) {

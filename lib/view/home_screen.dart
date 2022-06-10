@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         backgroundColor: kBackgroundColor,
         body: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: EdgeInsets.symmetric(horizontal: 6.w),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(children: [
@@ -49,10 +49,11 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 50.h, width: 350.w, child: const MyChipWidget()),
             Expanded(
               child: GridView.custom(
+                physics: const BouncingScrollPhysics(),
                 gridDelegate: SliverWovenGridDelegate.count(
                   crossAxisCount: 2,
                   mainAxisSpacing: 3,
-                  crossAxisSpacing: 3,
+                  crossAxisSpacing: 10,
                   pattern: [
                     const WovenGridTile(0.7),
                     const WovenGridTile(

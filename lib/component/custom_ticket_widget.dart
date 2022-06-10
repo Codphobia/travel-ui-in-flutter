@@ -114,12 +114,7 @@ class TicketContainer extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 23.w,
-                ),
-                child: const CustomDottedline(),
-              ),
+              const CustomDottedline(),
               Padding(
                 padding: EdgeInsets.symmetric(
                   vertical: 20.h,

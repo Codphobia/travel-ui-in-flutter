@@ -42,9 +42,10 @@ class _LoginPageState extends State<LoginPage> {
           bottom: 90.h,
           child: InkWell(
             onTap: () {
-              Get.to(() => const HomePage(),
-                  transition: Transition.leftToRight,
-                  duration: const Duration(seconds: 1));
+              Get.to(
+                () => const HomePage(),
+                transition: Transition.leftToRight,
+              );
             },
             child: Container(
               width: 100.w,

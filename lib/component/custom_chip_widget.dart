@@ -30,7 +30,7 @@ class _MyChipWidgetState extends State<MyChipWidget> {
   Widget build(BuildContext context) {
     return ListView.builder(
       scrollDirection: Axis.horizontal,
-      itemCount: chipsList.length,
+      itemCount: 10,
       itemBuilder: (context, index) {
         return Wrap(
           children: choiceChips(),
@@ -41,7 +41,7 @@ class _MyChipWidgetState extends State<MyChipWidget> {
 
   List<Widget> choiceChips() {
     List<Widget> chips = [];
-    for (int i = 0; i < chipsList.length; i++) {
+    for (int i = 0; i < 10; i++) {
       Widget item = Padding(
         padding: const EdgeInsets.only(left: 10, right: 5),
         child: ChoiceChip(

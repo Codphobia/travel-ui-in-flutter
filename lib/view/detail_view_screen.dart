@@ -19,69 +19,81 @@ class _DetailViewPageState extends State<DetailViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(children: <Widget>[
-        Align(
-          alignment: Alignment.topCenter,
-          child: Container(
+        Hero(
+          tag: widget.city.imagePath,
+          child: SizedBox(
             width: 360.w,
-            height: 530.h,
+            height: 300.h,
             child: Image.asset(
               widget.city.imagePath,
               fit: BoxFit.cover,
             ),
           ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: ClipRRect(
-            child: Container(
-              padding: const EdgeInsets.all(6),
-              width: 360.w,
-              height: 450.h,
-              decoration: BoxDecoration(
-                  color: kBackgroundColor,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40.r),
-                      topRight: Radius.circular(40.r))),
-              child: Column(children: [
-                SizedBox(
-                  height: 5.h,
+        Positioned(
+            top: 50.h,
+            left: 15.w,
+            child: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const CircleAvatar(
+                backgroundColor: kBackgroundColor,
+                child: Icon(
+                  Icons.arrow_back,
+                  color: kButtonColor,
                 ),
-                SizedBox(
-                  height: 50.h,
-                  width: 220.w,
-                  child: const MyButtonWidget(),
-                ),
-                SizedBox(
-                  height: 5.h,
-                ),
-                SizedBox(
-                  height: 30.h,
-                  width: 220.w,
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Text(
-                      '2 Ticket',
-                      style: kBlackHeadingForTicketTextStyle,
-                    ),
-                  ),
-                ),
-              ]),
-            ),
-          ),
-        ),
+              ),
+            )),
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-              width: 360.w,
-              height: 350.h,
-              child: ListView.builder(
-                shrinkWrap: true,
-                physics: ScrollPhysics(),
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return TicketContainer();
-                },
-              )),
+            padding: const EdgeInsets.all(6),
+            width: 360.w,
+            height: 450.h,
+            decoration: BoxDecoration(
+                color: kBackgroundColor,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(40.r),
+                    topRight: Radius.circular(40.r))),
+            child: Column(children: [
+              SizedBox(
+                height: 5.h,
+              ),
+              SizedBox(
+                height: 50.h,
+                width: 220.w,
+                child: const MyButtonWidget(),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              SizedBox(
+                height: 30.h,
+                width: 220.w,
+                child: Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    '2 Ticket',
+                    style: kBlackHeadingForTicketTextStyle,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 5.h,
+              ),
+              Expanded(
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: ScrollPhysics(),
+                  itemCount: 2,
+                  itemBuilder: (context, index) {
+                    return TicketContainer();
+                  },
+                ),
+              ),
+            ]),
+          ),
         ),
       ]),
     );

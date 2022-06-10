@@ -17,45 +17,49 @@ class CityWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(
-            () => DetailViewPage(
-                  city: city,
-                ),
-            transition: Transition.downToUp,
-            duration: const Duration(seconds: 1));
+          () => DetailViewPage(
+            city: city,
+          ),
+          transition: Transition.downToUp,
+        );
       },
-      child: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(
-                  city.imagePath,
-                ),
-                fit: BoxFit.cover),
-            borderRadius: BorderRadius.circular(25.r)),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 150.h,
-            ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-              Text(
-                city.cityName,
-                style: kHeadingforButtonTextStyle,
-              ),
-              Container(
-                width: 40.w,
-                height: 25.h,
-                decoration: BoxDecoration(
-                    color: kBackgroundColor,
-                    borderRadius: BorderRadius.circular(20.r)),
-                child: Center(
-                  child: Text(
-                    '\$ ${city.priceDollars.toString()}',
-                    style: kBlackHeadingForButtonTextStyle,
+      child: Hero(
+        tag: city.imagePath,
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage(
+                    city.imagePath,
                   ),
+                  fit: BoxFit.cover),
+              borderRadius: BorderRadius.circular(25.r)),
+          child: Column(
+            children: [
+              Spacer(),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+                Text(
+                  city.cityName,
+                  style: kHeadingforButtonTextStyle,
                 ),
-              )
-            ]),
-          ],
+                Container(
+                  width: 40.w,
+                  height: 25.h,
+                  decoration: BoxDecoration(
+                      color: kBackgroundColor,
+                      borderRadius: BorderRadius.circular(20.r)),
+                  child: Center(
+                    child: Text(
+                      '\$ ${city.priceDollars.toString()}',
+                      style: kBlackHeadingForButtonTextStyle,
+                    ),
+                  ),
+                )
+              ]),
+              SizedBox(
+                height: 15.h,
+              ),
+            ],
+          ),
         ),
       ),
     );
